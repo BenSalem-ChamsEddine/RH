@@ -10,7 +10,7 @@ public class Candidat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nom;
-    private long prenom;
+    private String prenom;
     private int age;
     @ManyToOne
     private Collaborateur collaborateur;
@@ -31,11 +31,11 @@ public class Candidat {
         this.nom = nom;
     }
 
-    public long getPrenom() {
+    public String getPrenom() {
         return prenom;
     }
 
-    public void setPrenom(long prenom) {
+    public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
 
@@ -71,10 +71,10 @@ public class Candidat {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Candidat candidat = (Candidat) o;
-        return prenom == candidat.prenom &&
-                age == candidat.age &&
+        return age == candidat.age &&
                 Objects.equals(id, candidat.id) &&
                 Objects.equals(nom, candidat.nom) &&
+                Objects.equals(prenom, candidat.prenom) &&
                 Objects.equals(collaborateur, candidat.collaborateur);
     }
 

@@ -11,7 +11,7 @@ public class Manager {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nom;
-    private long prenom;
+    private String prenom;
     private int age;
     @OneToMany(mappedBy="manager")
     private List<Collaborateur> collaborateurs;
@@ -33,11 +33,11 @@ public class Manager {
         this.nom = nom;
     }
 
-    public long getPrenom() {
+    public String getPrenom() {
         return prenom;
     }
 
-    public void setPrenom(long prenom) {
+    public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
 
@@ -82,11 +82,11 @@ public class Manager {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Manager manager = (Manager) o;
-        return prenom == manager.prenom &&
-                age == manager.age &&
+        return age == manager.age &&
                 Double.compare(manager.salaire, salaire) == 0 &&
                 Objects.equals(id, manager.id) &&
                 Objects.equals(nom, manager.nom) &&
+                Objects.equals(prenom, manager.prenom) &&
                 Objects.equals(collaborateurs, manager.collaborateurs);
     }
 
