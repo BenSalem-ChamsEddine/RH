@@ -32,7 +32,7 @@ public class ManagerController{
         managerService.deleteManager(manager);
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     @ResponseBody
     public List<Manager> findAll() {
         return managerService.findAll();

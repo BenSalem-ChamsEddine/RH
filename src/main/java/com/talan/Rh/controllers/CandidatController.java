@@ -31,7 +31,7 @@ public class CandidatController {
         candidatService.deleteCandidat(candidat);
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     @ResponseBody
     public List<Candidat> findAll() {
         return candidatService.findAll();
