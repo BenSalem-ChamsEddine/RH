@@ -38,37 +38,37 @@ public class ManagerController{
         return managerService.findAll();
     }
 
-    @GetMapping("/findById/{id}")
+    @GetMapping("/findbyid/{id}")
     @ResponseBody
     public Manager findById(@PathVariable("id") long id) {
         return managerService.findById(id);
     }
 
-    @GetMapping("/findByNom/{nom}")
+    @GetMapping("/findbynom/{nom}")
     @ResponseBody
     public List<Manager> findByNom(@PathVariable("nom") String nom) {
         return managerService.findByNom(nom);
     }
 
-    @GetMapping("/findByPrenom/{prenom}")
+    @GetMapping("/findbyprenom/{prenom}")
     @ResponseBody
     public List<Manager> findByPrenom(@PathVariable("prenom") String prenom) {
         return managerService.findByPrenom(prenom);
     }
 
-    @GetMapping("/findByNomOrPrenom/{contains}")
+    @GetMapping("/findbynomorprenom/{contains}")
     @ResponseBody
     public List<Manager> findByNomContainingOrPrenomContaining(@PathVariable("contains") String contains) {
         return managerService.findByNomContainingOrPrenomContaining(contains);
     }
 
-    @GetMapping("/findByCollaborateur")
+    @GetMapping("/findbycollaborateur")
     @ResponseBody
     public Manager findByCollaborateursContains(@RequestBody Collaborateur collaborateur) {
         return managerService.findByCollaborateursContains(collaborateur);
     }
 
-    @GetMapping("/findBySalaire/{salaire}")
+    @GetMapping("/findbysalaire/{salaire}")
     @ResponseBody
     public List<Manager> findBySalaire(@PathVariable("salaire") double salaire) {
         return managerService.findBySalaire(salaire);

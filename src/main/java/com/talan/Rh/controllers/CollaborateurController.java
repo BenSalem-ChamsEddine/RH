@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Collaborateur")
+@RequestMapping("/collaborateur")
 public class CollaborateurController {
 
     @Autowired
@@ -29,42 +29,42 @@ public class CollaborateurController {
     public void deleteCollaborateur(@RequestBody Collaborateur collaborateur) {
         collaborateurService.deleteCollaborateur(collaborateur);
     }
-    @GetMapping("/")
+    @GetMapping("")
     @ResponseBody
     public List<Collaborateur> findAll() {
         return collaborateurService.findAll();
     }
-    @GetMapping("/findById/{id}")
+    @GetMapping("/findbyid/{id}")
     @ResponseBody
     public Collaborateur findById(@PathVariable("id") long id) {
         return collaborateurService.findById(id);
     }
 
-    @GetMapping("/findByNom/{nom}")
+    @GetMapping("/findbynom/{nom}")
     @ResponseBody
     public List<Collaborateur> findByNom(@PathVariable("nom") String nom) {
         return collaborateurService.findByNom(nom);
     }
 
-    @GetMapping("/findByPrenom/{prenom}")
+    @GetMapping("/findbyprenom/{prenom}")
     @ResponseBody
     public List<Collaborateur> findByPrenom(@PathVariable("prenom") String prenom) {
         return collaborateurService.findByPrenom(prenom);
     }
 
-    @GetMapping("/findByNomOrPrenom/{contains}")
+    @GetMapping("/findbynomorprenom/{contains}")
     @ResponseBody
     public List<Collaborateur> findByNomContainingOrPrenomContaining(@PathVariable("contains") String contains) {
         return collaborateurService.findByNomContainingOrPrenomContaining(contains);
     }
 
-    @GetMapping("/findByCandidat")
+    @GetMapping("/findbycandidat")
     @ResponseBody
     public Collaborateur findByCandidatsContains(@RequestBody Candidat candidat) {
         return collaborateurService.findByCandidatsContains(candidat);
     }
 
-    @GetMapping("/findBySalaire/{salaire}")
+    @GetMapping("/findbysalaire/{salaire}")
     @ResponseBody
     public List<Collaborateur> findBySalaire(@PathVariable("salaire") double salaire) {
         return collaborateurService.findBySalaire(salaire);

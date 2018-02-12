@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Candidat")
+@RequestMapping("/candidat")
 public class CandidatController {
 
     @Autowired
@@ -37,37 +37,37 @@ public class CandidatController {
         return candidatService.findAll();
     }
 
-    @GetMapping("/findById/{id}")
+    @GetMapping("/findbyid/{id}")
     @ResponseBody
     public Candidat findById(@PathVariable("id")long id) {
         return candidatService.findById(id);
     }
 
-    @GetMapping("/findByNom/{nom}")
+    @GetMapping("/findbynom/{nom}")
     @ResponseBody
     public List<Candidat> findByNom(@PathVariable("nom")String nom) {
         return candidatService.findByNom(nom);
     }
 
-    @GetMapping("/findByPrenom/{prenom}")
+    @GetMapping("/findbyprenom/{prenom}")
     @ResponseBody
     public List<Candidat> findByPrenom(@PathVariable("prenom")String prenom) {
         return candidatService.findByPrenom(prenom);
     }
 
-    @GetMapping("/findByNomOrPrenom/{contains}")
+    @GetMapping("/findbynomorprenom/{contains}")
     @ResponseBody
     public List<Candidat> findByNomContainingOrPrenomContaining(@PathVariable("contains")String contains) {
         return candidatService.findByNomContainingOrPrenomContaining(contains);
     }
 
-    @GetMapping("/findByAge/{age}")
+    @GetMapping("/findbyage/{age}")
     @ResponseBody
     public List<Candidat> findByAge(@PathVariable("age") int age) {
         return candidatService.findByAge(age);
     }
 
-    @GetMapping("/findByCollaborateur")
+    @GetMapping("/findbycollaborateur")
     @ResponseBody
     public List<Candidat> findByCollaborateur(@RequestBody Collaborateur collaborateur) {
         return candidatService.findByCollaborateur(collaborateur);
