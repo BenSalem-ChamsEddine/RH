@@ -32,6 +32,12 @@ public class ManagerController{
         managerService.deleteManager(manager);
     }
 
+    @GetMapping("/")
+    @ResponseBody
+    public List<Manager> findAll() {
+        return managerService.findAll();
+    }
+
     @GetMapping("/findById/{id}")
     @ResponseBody
     public Manager findById(@PathVariable("id") long id) {

@@ -29,6 +29,11 @@ public class CollaborateurController {
     public void deleteCollaborateur(@RequestBody Collaborateur collaborateur) {
         collaborateurService.deleteCollaborateur(collaborateur);
     }
+    @GetMapping("/")
+    @ResponseBody
+    public List<Collaborateur> findAll() {
+        return collaborateurService.findAll();
+    }
     @GetMapping("/findById/{id}")
     @ResponseBody
     public Collaborateur findById(@PathVariable("id") long id) {

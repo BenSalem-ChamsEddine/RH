@@ -10,6 +10,7 @@ public interface CollaborateurService {
     Collaborateur addCollaborateur(Collaborateur collaborateur);
     Collaborateur updateCollaborateur(Collaborateur collaborateur);
     void deleteCollaborateur(Collaborateur collaborateur);
+    List<Collaborateur> findAll();
     Collaborateur findById(long id);
     List<Collaborateur> findByNom(String nom);
     List<Collaborateur> findByPrenom(String prenom);

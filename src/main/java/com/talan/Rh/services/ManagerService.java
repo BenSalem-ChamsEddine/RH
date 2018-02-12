@@ -10,6 +10,7 @@ public interface ManagerService {
     Manager addManager(Manager manager);
     Manager updateManager(Manager manager);
     void deleteManager(Manager manager);
+    List<Manager> findAll();
     Manager findById(long id);
     List<Manager> findByNom(String nom);
     List<Manager> findByPrenom(String prenom);

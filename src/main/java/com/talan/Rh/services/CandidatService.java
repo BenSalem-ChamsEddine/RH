@@ -10,6 +10,7 @@ public interface CandidatService {
     Candidat addCandidat(Candidat candidat);
     Candidat updateCandidat(Candidat candidat);
     void deleteCandidat(Candidat candidat);
+    List<Candidat> findAll();
     Candidat findById(long id);
     List<Candidat> findByNom(String nom);
     List<Candidat> findByPrenom(String prenom);

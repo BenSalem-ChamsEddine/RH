@@ -59,4 +59,9 @@ public class ManagerServiceImpl implements ManagerService {
     public List<Manager> findBySalaire(double salaire) {
         return managerRepository.findBySalaire(salaire);
     }
+
+    @Override
+    public List<Manager> findAll() {
+        return managerRepository.findAll();
+    }
 }

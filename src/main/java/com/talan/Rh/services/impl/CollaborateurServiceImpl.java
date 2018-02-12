@@ -58,4 +58,9 @@ public class CollaborateurServiceImpl implements CollaborateurService {
     public List<Collaborateur> findBySalaire(double salaire) {
         return collaborateurRepository.findBySalaire(salaire);
     }
+
+    @Override
+    public List<Collaborateur> findAll() {
+        return collaborateurRepository.findAll();
+    }
 }

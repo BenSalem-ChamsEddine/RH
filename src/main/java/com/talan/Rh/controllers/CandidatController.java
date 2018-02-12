@@ -31,6 +31,12 @@ public class CandidatController {
         candidatService.deleteCandidat(candidat);
     }
 
+    @GetMapping("/")
+    @ResponseBody
+    public List<Candidat> findAll() {
+        return candidatService.findAll();
+    }
+
     @GetMapping("/findById/{id}")
     @ResponseBody
     public Candidat findById(@PathVariable("id")long id) {

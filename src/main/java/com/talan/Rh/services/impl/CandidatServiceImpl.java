@@ -59,4 +59,9 @@ public class CandidatServiceImpl implements CandidatService {
     public List<Candidat> findByCollaborateur(Collaborateur c) {
         return candidatRepository.findByCollaborateur(c);
     }
+
+    @Override
+    public List<Candidat> findAll() {
+        return candidatRepository.findAll();
+    }
 }
