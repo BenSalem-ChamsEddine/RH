@@ -36,12 +36,12 @@ public class CollaborateurServiceImpl implements CollaborateurService {
 
     @Override
     public List<Collaborateur> findByNom(String nom) {
-        return collaborateurRepository.findByNom(nom);
+        return collaborateurRepository.findByNomContaining(nom);
     }
 
     @Override
     public List<Collaborateur> findByPrenom(String prenom) {
-        return collaborateurRepository.findByPrenom(prenom);
+        return collaborateurRepository.findByPrenomContaining(prenom);
     }
 
     @Override

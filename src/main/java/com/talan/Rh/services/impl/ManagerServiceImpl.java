@@ -37,12 +37,12 @@ public class ManagerServiceImpl implements ManagerService {
 
     @Override
     public List<Manager> findByNom(String nom) {
-        return managerRepository.findByNom(nom);
+        return managerRepository.findByNomContaining(nom);
     }
 
     @Override
     public List<Manager> findByPrenom(String prenom) {
-        return managerRepository.findByPrenom(prenom);
+        return managerRepository.findByPrenomContaining(prenom);
     }
 
     @Override

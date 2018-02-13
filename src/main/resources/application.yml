@@ -3,7 +3,7 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
       naming:
         implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyHbmImpl
         physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
@@ -14,3 +14,8 @@ spring:
     url: jdbc:postgresql://ec2-184-73-174-171.compute-1.amazonaws.com:5432/d91jpfckrc7oie?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory
     username: lvtxombntwuthe
     password: 8d5d5cf155d0d89fe93b4293ad26e5264a6573479b45ec09457dbed60b93653f
+management:
+  endpoints:
+    web:
+      expose: '*'
+

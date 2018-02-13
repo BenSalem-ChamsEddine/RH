@@ -9,8 +9,8 @@ import java.util.List;
 public interface CandidatRepository extends JpaRepository<Candidat, Long> {
 
     Candidat findById(long id);
-    List<Candidat> findByNom(String nom);
-    List<Candidat> findByPrenom(String prenom);
+    List<Candidat> findByNomContaining(String nom);
+    List<Candidat> findByPrenomContaining(String prenom);
     List<Candidat> findByNomContainingOrPrenomContaining(String Ncontains,String Pcontains);
     List<Candidat> findByAge(int age);
     List<Candidat> findByCollaborateur(Collaborateur c);

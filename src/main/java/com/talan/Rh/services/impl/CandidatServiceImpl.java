@@ -37,12 +37,12 @@ public class CandidatServiceImpl implements CandidatService {
 
     @Override
     public List<Candidat> findByNom(String nom) {
-        return candidatRepository.findByNom(nom);
+        return candidatRepository.findByNomContaining(nom);
     }
 
     @Override
     public List<Candidat> findByPrenom(String prenom) {
-        return candidatRepository.findByPrenom(prenom);
+        return candidatRepository.findByPrenomContaining(prenom);
     }
 
     @Override
