@@ -1,58 +1,83 @@
 package com.talan.Rh.controllers;
 
+import com.talan.Rh.entities.Endpoint;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-@RestController
+@Controller
 @RequestMapping("")
 public class HomeController {
 
 
-    public Map<String,String> getMappings(String type){
-        Map<String,String> map = null;
-            switch (type){
-                case "candidat" :
-                    map.put("Add","{[/candidat/add], methods=[POST], consumes=[candidat]}");
-                    map.put("Update","{[/candidat/update], methods=[PUT], consumes=[candidat]}");
-                    map.put("Delete","{[/candidat/delete], methods=[DELETE], consumes=[candidat]}");
-                    map.put("Find All","{[/candidat], methods=[GET]}");
-                    map.put("Find By Id","{[/candidat/findbyid/{id}], methods=[GET], consumes=[long id]}");
-                    map.put("Find By Nom","{[/candidat/findbynom/{nom}], methods=[GET], consumes=[String nom]}");
-                    map.put("Find By Prenom","{[/candidat/findbyprenom/{prenom}], methods=[GET], consumes=[String prenom]}");
-                    map.put("Find By Nom Or Prenom","{[/candidat/findbynomorprenom/{contains}] ,methods=[GET], consumes=[String contains]}");
-                    map.put("Find By Age","{[/candidat/findbyage/{age}], methods=[GET], consumes=[int age]}");
-                    map.put("Find By Collaborateur ","{[/candidat/findbycollaborateur], methods=[GET], consumes=[collaborateur]}");
-                    break;
-                case "collaborateur" :
-                    map.put("Add","{[/collaborateur/add], methods=[POST], consumes=[collaborateur]}");
-                    map.put("Update","{[/collaborateur/update], methods=[PUT], consumes=[collaborateur]}");
-                    map.put("Delete","{[/collaborateur/delete], methods=[DELETE], consumes=[collaborateur]}");
-                    map.put("Find All","{[/collaborateur], methods=[GET]}");
-                    map.put("Find By Id","{[/collaborateur/findbyid/{id}], methods=[GET], consumes=[long id]}");
-                    map.put("Find By Nom","{[/collaborateur/findbynom/{nom}], methods=[GET], consumes=[String nom]}");
-                    map.put("Find By Prenom","{[/collaborateur/findbyprenom/{prenom}], methods=[GET], consumes=[String prenom]}");
-                    map.put("Find By Nom Or Prenom","{[/collaborateur/findbynomorprenom/{contains}], methods=[GET], consumes=[String contains]}");
-                    map.put("Find By Age","{[/collaborateur/findbyage/{age}], methods=[GET], consumes=[int age]}");
-                    map.put("Find By Candidat ","{[/collaborateur/findbycandidat],methods=[GET]}");
-                    break;
-                case "manager" :
-                    map.put("Add","{[/manager/add], methods=[POST], consumes=[manager]}");
-                    map.put("Update","{[/manager/update], methods=[PUT], consumes=[manager]}");
-                    map.put("Delete","{[/manager/delete], methods=[DELETE], consumes=[manager]}");
-                    map.put("Find All","{[/manager], methods=[GET]}");
-                    map.put("Find By Id","{[/manager/findbyid/{id}], methods=[GET], consumes=[long id]}");
-                    map.put("Find By Nom","{[/manager/findbynom/{nom}], methods=[GET], consumes=[String nom]}");
-                    map.put("Find By Prenom","{[/manager/findbyprenom/{prenom}], methods=[GET], consumes=[String prenom]}");
-                    map.put("Find By Nom Or Prenom","{[/manager/findbynomorprenom/{contains}], methods=[GET], consumes=[String contains]}");
-                    map.put("Find By Age","{[/manager/findbyage/{age}], methods=[GET], consumes=[int age]}");
-                    map.put("Find By Collaborateur ","{[/manager/findbycollaborateur], methods=[GET], consumes=[collaborateur]}");
-                    break;
-                    default:
-                        map.put("","");
-                        break;
-            }
-        return map;
+    public List<Endpoint> getMappings(String type) {
+
+        List<Endpoint> endpoints = new ArrayList<>();
+        Map<String, String> map = new HashMap<String, String>();
+        if ("none".equals(type)) {
+            return null;
+        }
+        if ("candidat".toUpperCase().contains(type.toUpperCase().subSequence(0, type.length()))) {
+
+            endpoints.add(new Endpoint("Add", "[/candidat/add]", "[POST]", "[candidat]", "[candidat]"));
+            endpoints.add(new Endpoint("Update", "[/candidat/update]", "[PUT]", "[candidat]", "[candidat]"));
+            endpoints.add(new Endpoint("Delete", "[/candidat/delete]", "[DELETE]", "[candidat]", "X"));
+            endpoints.add(new Endpoint("Find All", "[/candidat]", "[GET]", "X", "[candidat[]]"));
+            endpoints.add(new Endpoint("Find By Id", "[/candidat/findbyid/{id}]", "[GET]", "[long id]", "[candidat]"));
+            endpoints.add(new Endpoint("Find By Nom", "[/candidat/findbynom/{nom}]", "[GET]", "[String nom]", "[candidat[]]"));
+            endpoints.add(new Endpoint("Find By Prenom", "[/candidat/findbyprenom/{prenom}]", "[GET]", "[String prenom]", "[candidat[]]"));
+            endpoints.add(new Endpoint("Find By Nom Or Prenom", "[/candidat/findbynomorprenom/{contains}]", "[GET]", "[String contains]", "[candidat[]]"));
+            endpoints.add(new Endpoint("Find By Age", "[/candidat/findbyage/{age}]", "[GET]", "[int age]", "[candidat[]]"));
+            endpoints.add(new Endpoint("Find By Collaborateur", "[/candidat/findbycollaborateur]", "[GET]", "[collaborateur]", "[candidat[]]"));
+        }
+
+        if ("collaborateur".toUpperCase().contains(type.toUpperCase().subSequence(0, type.length()))) {
+
+
+            endpoints.add(new Endpoint("Add", "[/collaborateur/add]", "[POST]", "[collaborateur]", "[collaborateur]"));
+            endpoints.add(new Endpoint("Update", "[/collaborateur/update]", "[PUT]", "[collaborateur]", "[collaborateur]"));
+            endpoints.add(new Endpoint("Delete", "[/collaborateur/delete]", "[DELETE]", "[collaborateur]", "X"));
+            endpoints.add(new Endpoint("Find All", "[/collaborateur]", "[GET]", "X", "[collaborateur[]]"));
+            endpoints.add(new Endpoint("Find By Id", "[/collaborateur/findbyid/{id}]", "[GET]", "[long id]", "[collaborateur]"));
+            endpoints.add(new Endpoint("Find By Nom", "[/collaborateur/findbynom/{nom}]", "[GET]", "[String nom]", "[collaborateur[]]"));
+            endpoints.add(new Endpoint("Find By Prenom", "[/collaborateur/findbyprenom/{prenom}]", "[GET]", "[String prenom]", "[collaborateur[]]"));
+            endpoints.add(new Endpoint("Find By Nom Or Prenom", "[/collaborateur/findbynomorprenom/{contains}]", "[GET]", "[String contains]", "[collaborateur[]]"));
+            endpoints.add(new Endpoint("Find By Age", "[/collaborateur/findbyage/{age}]", "[GET]", "[int age]", "[collaborateur[]]"));
+            endpoints.add(new Endpoint("Find By Candidat", "[/collaborateur/findbycandidat]", "[GET]", "[candidat]", "[collaborateur]"));
+
+
+        }
+
+        if ("manager".toUpperCase().contains(type.toUpperCase().subSequence(0, type.length()))) {
+
+            endpoints.add(new Endpoint("Add", "[/manager/add]", "[POST]", "[manager]", "[manager]"));
+            endpoints.add(new Endpoint("Update", "[/manager/update]", "[PUT]", "[manager]", "[manager]"));
+            endpoints.add(new Endpoint("Delete", "[/manager/delete]", "[DELETE]", "[manager]", "X"));
+            endpoints.add(new Endpoint("Find All", "[/manager]", "[GET]", "X", "[manager[]]"));
+            endpoints.add(new Endpoint("Find By Id", "[/manager/findbyid/{id}]", "[GET]", "[long id]", "[manager]"));
+            endpoints.add(new Endpoint("Find By Nom", "[/manager/findbynom/{nom}]", "[GET]", "[String nom]", "[manager[]]"));
+            endpoints.add(new Endpoint("Find By Prenom", "[/manager/findbyprenom/{prenom}]", "[GET]", "[String prenom]", "[manager[]]"));
+            endpoints.add(new Endpoint("Find By Nom Or Prenom", "[/manager/findbynomorprenom/{contains}]", "[GET]", "[String contains]", "[manager[]]"));
+            endpoints.add(new Endpoint("Find By Age", "[/manager/findbyage/{age}]", "[GET]", "[int age]", "[candidat[]]"));
+            endpoints.add(new Endpoint("Find By Collaborateur", "[/manager/findbycollaborateur]", "[GET]", "[collaborateur]", "[manager[]]"));
+        }
+        return endpoints;
+    }
+
+
+    @RequestMapping
+    public String home(ModelMap model, @RequestParam(value = "type", defaultValue = "none") String type) {
+        System.err.println(type);
+        List<Endpoint> mappings = getMappings(type);
+        model.addAttribute("mappings", mappings);
+        return mappings == null ? "home" : "result";
     }
 }
+
+

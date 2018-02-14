@@ -14,8 +14,9 @@ spring:
     url: jdbc:postgresql://ec2-184-73-174-171.compute-1.amazonaws.com:5432/d91jpfckrc7oie?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory
     username: lvtxombntwuthe
     password: 8d5d5cf155d0d89fe93b4293ad26e5264a6573479b45ec09457dbed60b93653f
+  thymeleaf:
+    cache: false
 management:
   endpoints:
     web:
       expose: '*'
-
