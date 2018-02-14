@@ -1,5 +1,8 @@
 package com.talan.Rh.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
@@ -13,8 +16,10 @@ public class Collaborateur {
     private String nom;
     private String prenom;
     private int age;
+    @JsonManagedReference
     @OneToMany(mappedBy="collaborateur")
     private List<Candidat> candidats;
+    @JsonBackReference
     @ManyToOne
     private Manager manager;
     private double salaire;

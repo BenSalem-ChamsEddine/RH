@@ -1,5 +1,7 @@
 package com.talan.Rh.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -12,6 +14,7 @@ public class Candidat {
     private String nom;
     private String prenom;
     private int age;
+    @JsonBackReference
     @ManyToOne
     private Collaborateur collaborateur;
 
